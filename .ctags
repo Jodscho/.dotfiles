@@ -1,0 +1,5 @@
+--options=/home/jonathan/.dotfiles/ctagsrc
+--exclude=.git
+--exclude=log
+--exclude=tmp
+--exclude=node_modules
