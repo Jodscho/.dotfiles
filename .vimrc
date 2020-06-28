@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'bfrg/vim-cpp-modern'
 Plugin 'pangloss/vim-javascript'
+Plugin 'vim-python/python-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -40,3 +41,9 @@ set shortmess=I
 
 " javascript syntax plugin
 let g:javascript_plugin_jsdoc = 1
+
+" python syntax plugin
+let g:python_highlight_all = 1
+
+" open ctags in new tab
+nmap g<C-]> :execute 'tab tag '.expand('<cword>')<CR>
