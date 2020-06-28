@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'bfrg/vim-cpp-modern'
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,3 +36,7 @@ let g:netrw_banner = 0
 " disable jump for colon
 autocmd FileType cpp setlocal cinoptions+=L0
 set shortmess=I
+
+
+" javascript syntax plugin
+let g:javascript_plugin_jsdoc = 1
