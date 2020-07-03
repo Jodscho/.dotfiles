@@ -1,4 +1,4 @@
-stty -ixon # disable ctrl-s and ctrl-q
+[[ $- == *i* ]] && stty -ixon # disable ctrl-s and ctrl-q (for interactive shell)
 shopt -s autocd
 shopt -s histappend
 
@@ -14,3 +14,4 @@ PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias cclip='xclip -selection clipboard'
