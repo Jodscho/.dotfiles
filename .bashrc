@@ -12,6 +12,6 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 # set xterm title to user@host:dir
 PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 
-alias ls='ls --color=auto'
+alias ls='ls -h --color=auto'
 alias grep='grep --color=auto'
 alias cclip='xclip -selection clipboard'

@@ -38,7 +38,6 @@ let g:netrw_banner = 0
 autocmd FileType cpp setlocal cinoptions+=L0
 set shortmess=I
 
-
 " javascript syntax plugin
 let g:javascript_plugin_jsdoc = 1
 
@@ -47,3 +46,25 @@ let g:python_highlight_all = 1
 
 " open ctags in new tab
 nmap g<C-]> :execute 'tab tag '.expand('<cword>')<CR>
+
+" save shortcuts
+inoremap <C-s> <esc>:w<cr>                 " save files
+nnoremap <C-s> :w<cr>
+inoremap <C-d> <esc>:wq!<cr>               " save and exit
+nnoremap <C-d> :wq!<cr>
+inoremap <C-q> <esc>:qa!<cr>               " quit discarding changes
+nnoremap <C-q> :qa!<cr>
+
+
+nnoremap <C-x> :call ExecuteProg()<cr>
+
+
+function! ExecuteProg()
+    if &filetype == "cpp"
+        :! g++ % && ./a.out
+    elseif &filetype = "python"
+        python3 %
+    else
+        echom "can't execute, unknown filetype"
+    endif
+endfunction
