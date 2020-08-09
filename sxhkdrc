@@ -1,0 +1,5 @@
+ctrl + d
+    dmenu_run
+
+super + shift + {f, t, m, s, g}
+    {firefox, telegram-desktop, thunderbird, flameshot gui, gimp}
