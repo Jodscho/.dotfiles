@@ -4,8 +4,9 @@ xterm*termName: xterm-256color
 
 xterm*VT100.Translations: #override \
                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
-                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
-
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+                 Ctrl ~Meta Shift <Key>h: string(0x1b) string("[72;5u") \n\
+                 Ctrl ~Meta Shift <Key>l: string(0x1b) string("[76;5u")
 
 ! special
 xterm*foreground:   #c5c8c6
