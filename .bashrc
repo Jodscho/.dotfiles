@@ -2,6 +2,8 @@
 shopt -s autocd
 shopt -s histappend
 
+PATH=~/.scripts:$PATH
+
 HISTSIZE=1000
 HISTFILESIZE=2000
 HISTCONTROL=ignoreboth
@@ -15,3 +17,6 @@ PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 alias ls='ls -h --color=auto'
 alias grep='grep --color=auto'
 alias cclip='xclip -selection clipboard'
+alias sx-up='kill -s SIGUSR1 $(pgrep sxhkd) && notify-send updated-sxhkd'
+alias vim-s='vim  -S ~/mysession.vim -c '\''hi TabLineSel ctermfg=White ctermbg=Grey
+'\'''

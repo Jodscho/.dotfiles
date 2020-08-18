@@ -1,5 +1,14 @@
 ctrl + d
     dmenu_run
 
-super + shift + {f, t, m, s, g}
-    {firefox, telegram-desktop, thunderbird, flameshot gui, gimp}
+super + shift + {f, t, m, s, g, n}
+    {firefox, telegram-desktop, thunderbird, flameshot gui, gimp, nautilus}
+
+super + shift + x
+    prompt "Do you want to shutdown?" "shutdown -h now"
+
+super + shift + c
+    xterm
+
+super + shift + w
+    weather
