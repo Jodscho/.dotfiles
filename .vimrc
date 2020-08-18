@@ -15,19 +15,15 @@ Plugin 'tomasiser/vim-code-dark'
 Plugin 'bfrg/vim-cpp-modern'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-python/python-syntax'
+Plugin 'tpope/vim-surround'
+Plugin 'junegunn/fzf'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()            
+filetype plugin indent on
 
 colorscheme codedark
 
-" automatic closing brackets
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
@@ -68,3 +64,27 @@ function! ExecuteProg()
         echom "can't execute, unknown filetype"
     endif
 endfunction
+
+" global rename shortcut
+nnoremap <S-A-r> :%s/<c-r>=expand("<cword>")<cr>//g<c-e><left><left>
+
+" move tabs
+nnoremap <S-h> :tabprev<cr>
+nnoremap <S-l> :tabnext<cr>
+nnoremap <ESC>[72;5u :tabm -1<cr>
+nnoremap <ESC>[76;5u :tabm +1<cr>
+
+" fuzzy finder settings
+let g:fzf_action = {'enter': 'tab split'}
+let g:fzf_layout = { 'down': '10%' }
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>" " proper close on esc
+nnoremap <C-P> :FZF<cr>
+
+nnoremap <F3> :mksession! ~/mysession.vim<cr>
+
+" ctags: open in new tab
+nmap <C-W> :execute 'tab tag '.expand('<cword>')<CR>
+
+"color of current tab
+hi TabLineSel ctermfg=White ctermbg=Grey
+
