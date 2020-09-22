@@ -1,4 +1,5 @@
---options=/home/jonathan/.dotfiles/ctagsrc
+--options=/home/jonathan/.dotfiles/ctags-latex
+--exclude=out
 --exclude=.git
 --exclude=log
 --exclude=tmp
