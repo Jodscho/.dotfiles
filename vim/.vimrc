@@ -2,26 +2,6 @@ set expandtab tabstop=4 shiftwidth=4
 set relativenumber
 set nu rnu
 
-set nocompatible              
-filetype off                 
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'bfrg/vim-cpp-modern'
-Plugin 'pangloss/vim-javascript'
-Plugin 'vim-python/python-syntax'
-" Plugin 'tpope/vim-surround'
-" Plugin 'junegunn/fzf'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            
-filetype plugin indent on
-
 colorscheme codedark
 
 inoremap {<CR> {<CR>}<ESC>O

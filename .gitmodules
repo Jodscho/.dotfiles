@@ -1,0 +1,12 @@
+[submodule "submodules/vim-cpp-modern"]
+	path = submodules/vim-cpp-modern
+	url = https://github.com/bfrg/vim-cpp-modern
+[submodule "submodules/vim-code-dark"]
+	path = submodules/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark
+[submodule "submodules/python-syntax"]
+	path = submodules/python-syntax
+	url = https://github.com/vim-python/python-syntax
+[submodule "submodules/vim-javascript"]
+	path = submodules/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
