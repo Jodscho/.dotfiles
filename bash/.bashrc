@@ -18,5 +18,4 @@ alias ls='ls -h --color=auto'
 alias grep='grep --color=auto'
 alias cclip='xclip -selection clipboard'
 alias sx-up='kill -s SIGUSR1 $(pgrep sxhkd) && notify-send updated-sxhkd'
-alias vim-s='vim  -S ~/mysession.vim -c '\''hi TabLineSel ctermfg=White ctermbg=Grey
-'\'''
+alias vim-s='vim -S ~/vim-sessions/"$(ls ~/vim-sessions | dmenu -p 'choose' -i -l 5)" -c "source ~/.vimrc"'

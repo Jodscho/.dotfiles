@@ -1,4 +1,4 @@
-ctrl + d
+super + shift + d
     dmenu_run -l 10
 
 super + shift + {f, t, m, s, g, n}
