@@ -1,14 +1,11 @@
-super + shift + d
-    dmenu_run -l 10
-
 super + shift + {f, t, m, s, g, n}
     {firefox, telegram-desktop, thunderbird, flameshot gui, gimp, nautilus}
 
 super + shift + x
-    prompt "Do you want to shutdown?" "shutdown -h now"
+    power_off.sh
 
-super + shift + c
-    xterm
+super + shift + o
+    brightness.sh i 50
 
 super + shift + w
     weather

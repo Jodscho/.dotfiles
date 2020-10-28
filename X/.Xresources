@@ -1,6 +1,7 @@
-xterm*faceName: Droid Sans 
-xterm*faceSize: 12
+xterm*faceName: Droid Sans Mono
+xterm*faceSize: 13
 xterm*termName: xterm-256color
+xterm*visualBell: False
 
 xterm*VT100.Translations: #override \
                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\

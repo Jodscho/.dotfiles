@@ -2,6 +2,7 @@ set expandtab tabstop=4 shiftwidth=4
 set relativenumber
 set nu rnu
 
+syntax on
 colorscheme codedark
 
 inoremap {<CR> {<CR>}<ESC>O
@@ -89,7 +90,6 @@ xnoremap qt xi``''<Esc>hP
 nnoremap <F12> :! bibtex out/essay.aux<CR>
 
 " latex -- END
-
 function! DmenuFuzzy(cmd)
   let unstriped = system("find . -type f ! -name '*.swp'| dmenu -i -l 10")
   let fname = substitute(unstriped, '\n$', '', '')

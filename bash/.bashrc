@@ -2,10 +2,10 @@
 shopt -s autocd
 shopt -s histappend
 
-PATH=~/.scripts:$PATH
+#PATH=~/scripts:$PATH
 
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 HISTCONTROL=ignoreboth
 
 # colored command prompt
