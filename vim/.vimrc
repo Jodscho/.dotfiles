@@ -37,8 +37,10 @@ function! ExecuteProg()
         :! python3 %
     elseif &filetype == "tex"
         :!latexmk -output-directory=out -pdf essay.tex
+    elseif &filetype == "markdown"
+        :!pandoc % -o %:r.pdf
     else
-        echom "can't execute, unknown filetype"
+        echom "can't execute, unknown filetype: " . &filetype
     endif
 endfunction
 
@@ -53,11 +55,27 @@ nnoremap <ESC>[76;5u :tabm +1<cr>
 
 nnoremap <F3> :call SaveSession()<cr>
 
+
 function! SaveSession()
-  let name = input('enter session-name: ')
-  execute "mksession! ~/vim-sessions/" . name
-  execute system("notify-send \"created session: " . name . "\"") 
+  let name = system("vim_sessions.sh")
+  let fname = substitute(name, '\n$', '', '')
+  if empty(fname)
+    return
+  elseif fname == "new-session"
+    let session_name = input('enter session-name: ')
+    execute "mksession! ~/vim-sessions/" . session_name
+    execute system("notify-send \"created session: " . session_name . "\"") 
+  else
+    execute "mksession! ~/vim-sessions/" . fname
+    execute system("notify-send \"overrode session: " . fname . "\"") 
+  endif
 endfunction
+
+"function! SaveSession()
+"  let name = input('enter session-name: ')
+"  execute "mksession! ~/vim-sessions/" . name
+"  execute system("notify-send \"created session: " . name . "\"") 
+"endfunction
 
 " tab settings -- START
 " color of current tab
@@ -88,8 +106,15 @@ xnoremap bf xi\textbf{}<Esc>P
 xnoremap qt xi``''<Esc>hP
 
 nnoremap <F12> :! bibtex out/essay.aux<CR>
-
 " latex -- END
+
+" markdown -- START
+autocmd FileType markdown inoremap ;$fr $\frac{}{}$<Esc>4ha
+autocmd FileType markdown inoremap ;fr \frac{}{}<Esc>3ha
+autocmd FileType markdown inoremap ;st $\{\}$<Esc>3ha
+autocmd FileType markdown inoremap ;dm \Delta^{\mathcal{T}}
+" markdown -- END
+
 function! DmenuFuzzy(cmd)
   let unstriped = system("find . -type f ! -name '*.swp'| dmenu -i -l 10")
   let fname = substitute(unstriped, '\n$', '', '')
