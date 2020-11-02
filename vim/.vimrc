@@ -54,6 +54,7 @@ nnoremap <ESC>[72;5u :tabm -1<cr>
 nnoremap <ESC>[76;5u :tabm +1<cr>
 
 nnoremap <F3> :call SaveSession()<cr>
+nnoremap <F4> :call OpenPdf()<cr>
 
 
 function! SaveSession()
@@ -122,6 +123,10 @@ function! DmenuFuzzy(cmd)
     return
   endif
   execute a:cmd . " " . fname
+endfunction
+
+function! OpenPdf()
+  echom system('find . -name '.expand('%:r').'.pdf -exec zathura "{}" \; &')
 endfunction
 
 nnoremap <C-P> :call DmenuFuzzy("tabe")<cr>
