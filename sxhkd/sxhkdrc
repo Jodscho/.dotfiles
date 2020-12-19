@@ -1,5 +1,5 @@
-super + shift + {f, t, m, s, g, n}
-    {firefox, telegram-desktop, thunderbird, flameshot gui, gimp, nautilus}
+super + shift + {f, t, m, s, g}
+    {firefox, telegram-desktop, thunderbird, flameshot gui, gimp}
 
 super + shift + x
     power_off.sh
@@ -7,5 +7,26 @@ super + shift + x
 super + shift + o
     brightness.sh i 50
 
+super + shift + n
+    xterm -e helper_notes.sh
+
+super + shift + r
+    xterm -e ranger
+
 super + shift + w
-    weather
+    weather.sh
+
+super + shift + F5
+    adjust_volume.sh 0
+
+super + shift + F6
+    adjust_volume.sh 1
+
+super + shift + F7
+    audio_switch.sh && statusbar.sh
+
+super + shift + F11
+    sudo /home/jonathan/scripts/usb_mount.sh 0
+
+super + shift + F12
+    sudo /home/jonathan/scripts/usb_mount.sh 1

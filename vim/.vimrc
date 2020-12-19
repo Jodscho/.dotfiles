@@ -35,8 +35,13 @@ function! ExecuteProg()
         :! g++ % && ./a.out
     elseif &filetype == "python"
         :! python3 %
-    elseif &filetype == "tex"
-        :!latexmk -output-directory=out -pdf essay.tex
+    elseif &filetype == "tex" || &filetype == "plaintex"
+        if filereadable("build.sh")
+            :!./build.sh Arbeit 
+            ":!./build.sh Arbeit && ./clean.sh 
+        else
+            :!latexmk -output-directory=out -pdf essay.tex
+        endif
     elseif &filetype == "markdown"
         :!pandoc % -o %:r.pdf
     else
@@ -80,7 +85,7 @@ endfunction
 
 " tab settings -- START
 " color of current tab
-hi TabLineSel ctermfg=White ctermbg=Grey
+hi TabLineSel ctermfg=Black ctermbg=White
 " open ctags in new tab
 nmap g<C-]> :execute 'tab tag '.expand('<cword>')<CR>
 " always show file in tab
@@ -106,14 +111,21 @@ xnoremap it xi\textit{}<Esc>P
 xnoremap bf xi\textbf{}<Esc>P
 xnoremap qt xi``''<Esc>hP
 
-nnoremap <F12> :! bibtex out/essay.aux<CR>
+nnoremap <F12> :! bibtex Arbeit.aux<CR>
 " latex -- END
 
 " markdown -- START
+xnoremap ms xi\mathsf{}<Esc>P
+xnoremap $ms xi$\mathsf{}$<Esc>hP
 autocmd FileType markdown inoremap ;$fr $\frac{}{}$<Esc>4ha
 autocmd FileType markdown inoremap ;fr \frac{}{}<Esc>3ha
-autocmd FileType markdown inoremap ;st $\{\}$<Esc>3ha
+autocmd FileType markdown inoremap ;st \{\}<Esc>2ha
+autocmd FileType markdown inoremap ;$st $\{\}$<Esc>3ha
 autocmd FileType markdown inoremap ;dm \Delta^{\mathcal{T}}
+autocmd FileType markdown inoremap ;mc \mathcal{}<Esc>i
+autocmd FileType markdown inoremap ;$mc $\mathcal{}$<Esc>hi
+autocmd FileType markdown inoremap ;ms \mathsf{}<Esc>i
+autocmd FileType markdown inoremap ;$ms $\mathsf{}$<Esc>hi
 " markdown -- END
 
 function! DmenuFuzzy(cmd)
