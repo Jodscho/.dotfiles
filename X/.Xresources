@@ -1,4 +1,4 @@
-xterm*faceName: Droid Sans Mono
+xterm*faceName: DejaVu Sans
 xterm*faceSize: 13
 xterm*termName: xterm-256color
 xterm*visualBell: False
@@ -9,40 +9,65 @@ xterm*VT100.Translations: #override \
                  Ctrl ~Meta Shift <Key>h: string(0x1b) string("[72;5u") \n\
                  Ctrl ~Meta Shift <Key>l: string(0x1b) string("[76;5u")
 
-! special
-xterm*foreground:   #c5c8c6
-xterm*background:   #1c1c1c
-xterm*cursorColor:  #c5c8c6
+!*.background:   #0A0807
+*.background:   #1c1c1c
+*.color0:       #0A0807
+*.color1:       #C0682E
+*.color10:      #9C674F
+!*.color11:      #F29328
+*.color11:      #EBA45A
+*.color12:      #EBA45A
+*.color13:      #C5A461
+*.color14:      #2D5F90
+*.color15:      #bfb3b7
+*.color2:       #9C674F
+*.color3:       #F29328
+*.color4:       #EBA45A
+*.color5:       #C5A461
+*.color6:       #2D5F90
+*.color66:      #0A0807
+*.color7:       #bfb3b7
+*.color8:       #857d80
+*.color9:       #C0682E
+*.cursorColor:  #d9d8d8
+*.foreground:   #ffffff
+!*.foreground:   #c5c8c6
+!*.foreground:   #bfb3b7
 
-! black
-xterm*color0:       #1d1f21
-xterm*color8:       #969896
-
-! red
-xterm*color1:       #cc6666
-xterm*color9:       #cc6666
-
-! green
-xterm*color2:       #b5bd68
-xterm*color10:      #b5bd68
-
-! yellow
-xterm*color3:       #f0c674
-xterm*color11:      #f0c674
-
-! blue
-xterm*color4:       #81a2be
-xterm*color12:      #81a2be
-
-! magenta
-xterm*color5:       #b294bb
-xterm*color13:      #b294bb
-
-! cyan
-xterm*color6:       #8abeb7
-xterm*color14:      #8abeb7
-
-! white
-xterm*color7:       #c5c8c6
-xterm*color15:      #ffffff
+!! special
+!xterm*foreground:   #c5c8c6
+!xterm*background:   #1c1c1c
+!xterm*cursorColor:  #c5c8c6
+!
+!! black
+!xterm*color0:       #1d1f21
+!xterm*color8:       #969896
+!
+!! red
+!xterm*color1:       #cc6666
+!xterm*color9:       #cc6666
+!
+!! green
+!xterm*color2:       #b5bd68
+!xterm*color10:      #b5bd68
+!
+!! yellow
+!xterm*color3:       #f0c674
+!xterm*color11:      #f0c674
+!
+!! blue
+!xterm*color4:       #81a2be
+!xterm*color12:      #81a2be
+!
+!! magenta
+!xterm*color5:       #b294bb
+!xterm*color13:      #b294bb
+!
+!! cyan
+!xterm*color6:       #8abeb7
+!xterm*color14:      #8abeb7
+!
+!! white
+!xterm*color7:       #c5c8c6
+!xterm*color15:      #ffffff
 

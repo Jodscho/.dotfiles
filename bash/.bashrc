@@ -1,6 +1,7 @@
 [[ $- == *i* ]] && stty -ixon # disable ctrl-s and ctrl-q (for interactive shell)
 shopt -s autocd
 shopt -s histappend
+xset b off
 
 #PATH=~/scripts:$PATH
 
@@ -9,7 +10,9 @@ HISTFILESIZE=20000
 HISTCONTROL=ignoreboth
 
 # colored command prompt
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#PS1='\[\033[01;32m\]\u@\h\[\033[00;37m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#PS1='\[\033[01;34m\]\u\[\033[01;31m\]@\033[01;32m\]\h\[\033[00;37m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='\[\033[01;34m\]\u\[\033[01;31m\]@\h\[\033[00;31m\]:\[\033[01;32m\]\w\[\033[00m\]\$ '
 
 # set xterm title to user@host:dir
 PS1="\[\e]0;\u@\h: \w\a\]$PS1"
