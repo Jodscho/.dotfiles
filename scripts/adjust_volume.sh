@@ -6,5 +6,3 @@ elif [[ "$1" == 0 ]]; then
     amixer set Master 10%-
 fi
 
-statusbar.sh
-

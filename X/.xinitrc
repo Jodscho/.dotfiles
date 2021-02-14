@@ -22,10 +22,6 @@ picom -f --experimental-backend &
 feh --bg-scale /home/jonathan/.dotfiles/feh/wallpaper.jpg &
 redshift -c ~/redshift &
 sxhkd -c ~/sxhkdrc &
-
-while true; do
-    statusbar.sh
-    sleep 1m
-done &
+dwmblocks &
 
 exec dwm

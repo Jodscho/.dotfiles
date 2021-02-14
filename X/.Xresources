@@ -1,4 +1,4 @@
-xterm*faceName: DejaVu Sans
+xterm*faceName: DejaVu Sans Mono
 xterm*faceSize: 13
 xterm*termName: xterm-256color
 xterm*visualBell: False

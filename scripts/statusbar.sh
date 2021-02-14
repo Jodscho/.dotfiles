@@ -9,18 +9,42 @@ audio(){
     headphones="alsa_output.pci-0000_00_1b.0.analog-stereo"
 
     # get proper icon
-    outsink=""
+    sink_icon=""
     if [[ "$sink" == "$speaker" ]]; then
-       outsink=""
+       sink_icon=""
     elif [[ "$sink" == "$headphones" ]]; then
-       outsink=""
+       sink_icon=""
     fi
 
     # volume level
     volume=`amixer get Master | tail -n 1 | cut -d ' ' -f7 | sed -e 's/^.//' -e 's/.$//'`
 
-    echo "| ${outsink} ${volume} |"
+    echo "| ${sink_icon} ${volume}"
     
 }
 
-xsetroot -name "$(audio)  $(date -u +"%a %e. %b %H:%M")"
+my_date(){
+    out=""
+    icon=""
+    if [[ "$HOSTNAME" == "core" ]]; then
+        out=`date | cut -d':' -f1-2`
+    elif [[ "$HOSTNAME" == "pc" ]]; then
+        out=`date -u +"%a %e. %b %H:%M"`
+    fi
+    
+    echo "| ${icon} ${out}"
+}
+
+my_battery(){
+    if [[ "$HOSTNAME" == "pc" ]]; then
+        return
+    fi
+
+   icon=""
+   battery_life=`acpi -b | cut -d',' -f2`
+   
+   echo "${icon}${battery_life}"
+}
+
+
+xsetroot -name "$(my_battery) $(audio) $(my_date)"
