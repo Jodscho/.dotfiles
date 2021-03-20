@@ -23,5 +23,7 @@ feh --bg-scale /home/jonathan/.dotfiles/feh/wallpaper.jpg &
 redshift -c ~/redshift &
 sxhkd -c ~/sxhkdrc &
 dwmblocks &
+xset s off &
+xset -dpms &
 
 exec dwm

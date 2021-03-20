@@ -10,9 +10,6 @@ super + shift + n
 super + shift + r
     xterm -e ranger
 
-super + shift + w
-    weather.sh
-
 super + shift + F5
     adjust_volume.sh 0 && pkill -RTMIN+17 dwmblocks
 
@@ -20,16 +17,22 @@ super + shift + F6
     adjust_volume.sh 1 && pkill -RTMIN+17 dwmblocks
 
 super + shift + F7
-    audio_switch.sh 
+    audio_switch.sh && pkill -RTMIN+17 dwmblocks
 
 super + shift + F11
-    sudo /home/jonathan/scripts/usb_mount.sh 0
+    sudo /home/jonathan/scripts/usb_mount.sh 0 && pkill -RTMIN+18 dwmblocks
 
 super + shift + F12
-    sudo /home/jonathan/scripts/usb_mount.sh 1
+    sudo /home/jonathan/scripts/usb_mount.sh 1 && pkill -RTMIN+18 dwmblocks
 
 super + shift + o
     sudo /home/jonathan/scripts/brightness.sh d 50
 
 super + shift + i
     sudo /home/jonathan/scripts/brightness.sh i 50
+
+super + shift + u
+    tabbed -c zathura -e
+
+super + shift + l
+    systemctl suspend
