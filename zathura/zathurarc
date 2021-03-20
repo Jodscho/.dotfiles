@@ -1,0 +1,5 @@
+# this is a test
+set window-title-basename true
+set guioptions none
+set default-bg "#1c1c1c"
+set selection-clipboard clipboard

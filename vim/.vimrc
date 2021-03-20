@@ -1,6 +1,7 @@
 set expandtab tabstop=4 shiftwidth=4
 set relativenumber
 set nu rnu
+set autoindent
 
 syntax on
 colorscheme codedark
@@ -31,7 +32,10 @@ nnoremap <C-d> :wq!<cr>
 nnoremap <C-x> :call ExecuteProg()<cr>
 
 function! ExecuteProg()
-    if &filetype == "cpp"
+
+    if &filetype == "c"
+        :! gcc % && ./a.out
+    elseif &filetype == "cpp"
         :! g++ % && ./a.out
     elseif &filetype == "python"
         :! python3 %
@@ -128,6 +132,7 @@ autocmd FileType markdown inoremap ;ms \mathsf{}<Esc>i
 autocmd FileType markdown inoremap ;$ms $\mathsf{}$<Esc>hi
 " markdown -- END
 
+
 function! DmenuFuzzy(cmd)
   let unstriped = system("find . -type f ! -name '*.swp'| dmenu -i -l 10")
   let fname = substitute(unstriped, '\n$', '', '')
@@ -144,3 +149,6 @@ endfunction
 nnoremap <C-P> :call DmenuFuzzy("tabe")<cr>
 nnoremap <A-1> :call DmenuFuzzy("sp")<cr>
 nnoremap <A-9> :call DmenuFuzzy("vs")<cr>
+
+
+autocmd BufWritePost sxhkdrc, !kill -s SIGUSR1 $(pgrep sxhkd) && notify-send updated-sxhkd

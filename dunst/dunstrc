@@ -86,7 +86,7 @@
 
     ### Text ###
 
-    font = DejaVuSansMono 14
+    font = DejaVuSansMono 12
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
