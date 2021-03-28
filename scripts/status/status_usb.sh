@@ -3,7 +3,7 @@
 icon=""
 lines=`lsblk --output MOUNTPOINT | grep /media | wc -l`
 if [[ $lines == 0 ]]; then
-    echo ""
+    echo -n ""
 else
-    echo "${icon} ${lines}"
+    echo -n "^c${color4}^${icon} ^d^${lines}"
 fi

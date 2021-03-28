@@ -4,5 +4,7 @@ if [[ "$BUTTON" == 2 ]]; then
 fi
 packs=`pacman -Sup | wc -l`
 icon=""
-echo "${icon} ${packs}"
+source /home/jonathan/scripts/colors.sh
+echo "^c${color4}^${icon} ^d^${packs}"
+#echo "${icon} ${packs}"
 
