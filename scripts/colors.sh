@@ -17,3 +17,6 @@ color13="#D37692"
 color14="#9375C5"
 color15="#ebc1cc"
 
+echo_color(){
+    echo -n "^c${color4}^$1 ^d^$2"
+}

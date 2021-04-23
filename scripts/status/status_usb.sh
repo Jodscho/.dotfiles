@@ -1,9 +1,10 @@
 #!/bin/bash
 
+source /home/jonathan/scripts/colors.sh
 icon=""
 lines=`lsblk --output MOUNTPOINT | grep /media | wc -l`
 if [[ $lines == 0 ]]; then
-    echo -n ""
+    echo ""
 else
-    echo -n "^c${color4}^${icon} ^d^${lines}"
+    echo -n "$(echo_color $icon $lines)"
 fi
