@@ -2,4 +2,12 @@
 set window-title-basename true
 set guioptions none
 set default-bg "#1c1c1c"
+set default-fg "#dfc29a"
+set completion-fg "#ebc1cc"
+set completion-fg "#ebc1cc" 
+set completion-highlight-bg "#BE712C"
+set completion-highlight-fg "#100b0d"
+set inputbar-bg "#100b0d"
+set inputbar-fg "#dfc29a"
+set font "DejaVuSansMono 11"
 set selection-clipboard clipboard
