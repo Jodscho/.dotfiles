@@ -1,16 +1,20 @@
 set relativenumber
 set nu rnu
 set autoindent
+set tabstop=4 shiftwidth=4
 
 syntax on
-colorscheme codedark
+colorscheme pablo
+"colorscheme codedark
+
+set visualbell
+set t_vb=
 
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
 nnoremap <s-c-b> :Texplore<CR>
 
-let g:netrw_banner = 0
 autocmd FileType cpp setlocal cinoptions+=L0 " disable jump for colon
 set shortmess=I
 let g:javascript_plugin_jsdoc = 1 " javascript syntax plugin
@@ -38,6 +42,7 @@ nmap <silent> cp "_cw<C-R>"<Esc>
 
 let g:netrw_winsize = 25
 let g:netrw_liststyle = 3
+let g:netrw_banner = 0
 
 source ~/.dotfiles/vim/snippets.vim 
 source ~/.dotfiles/vim/compile.vim

@@ -10,10 +10,10 @@ function! ExecuteProg()
         :! python3 %
     elseif &filetype == "tex" || &filetype == "plaintex"
         if filereadable("build.sh")
-            :!./build.sh Arbeit 
-            ":!./build.sh Arbeit && ./clean.sh 
+            ":!./build.sh Arbeit 
+            :!./build.sh Arbeit && ./clean.sh 
         else
-            :!latexmk -output-directory=out -pdf essay.tex
+            :!latexmk -output-directory=out -pdf %
         endif
     elseif &filetype == "markdown"
         :!pandoc % -o %:r.pdf
