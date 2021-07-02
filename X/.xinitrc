@@ -26,4 +26,4 @@ dwmblocks &
 xset s off &
 xset -dpms &
 
-exec dwm
+exec ./scripts/startdwm.sh

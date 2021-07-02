@@ -5,10 +5,10 @@ super + shift + x
     power_off.sh
 
 super + shift + n
-    xterm -e helper_notes.sh
+    st -e helper_notes.sh
 
 super + shift + r
-    xterm -e ranger
+    st -e ranger
 
 super + shift + F5
     adjust_volume.sh 0 && pkill -RTMIN+17 dwmblocks
@@ -36,3 +36,22 @@ super + shift + u
 
 super + shift + l
     systemctl suspend
+
+super + shift + p
+    /home/jonathan/scripts/bookmark.sh -o
+
+super + shift + a
+    /home/jonathan/scripts/bookmark.sh -a
+
+ctrl + m
+	st -e launch_cmus.sh
+
+ctrl + k
+	killall cmus && pkill -RTMIN+20 dwmblocks
+
+ctrl + q
+	/home/jonathan/scripts/find_track.sh
+
+alt + space
+	/home/jonathan/scripts/via
+
