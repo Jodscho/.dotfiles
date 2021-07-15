@@ -40,7 +40,7 @@ while read arg; do
 					$BROWSER "$arg" &
 					;;
 				text/* | inode/x-empty | message/rfc822)
-					$TERMINAL -e $EDITOR "$arg"
+					$TERMINAL -e $EDITOR "$arg" -c ":cd %:p:h"
 					;;
 				inode/directory)
 					cd "$arg"

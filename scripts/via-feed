@@ -5,6 +5,7 @@ cache="$HOME/.cache/via"
 if [[ "$1" == "-r" ]] || [[ ! -e "$cache" ]]; then
 	cat "$HOME/.config/via/shortcuts" > "$cache"
 	cat "$HOME/.config/via/websites" >> "$cache"
+	#dmenu_path >> "$cache"
 	#find "/usr/local/src/suckless" \( -path "*/\.git/*" \) -prune -o -print | sort >> "$cache"
 	find "/usr/local/src/suckless" "$HOME/.dotfiles/" \( -name .git -o -name submodules \) -prune -o -print | sort >> "$cache"
 	find "$HOME" -mindepth 1 \( -name ".*" -o -path "$HOME/.dotfiles/submodules/*" \) -prune -o -print | sort >> "$cache"
