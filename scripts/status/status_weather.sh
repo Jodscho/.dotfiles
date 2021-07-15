@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/jonathan/scripts/colors.sh
+source /home/jonathan/Documents/scripts/colors.sh
 
 icon=""
 degree=`curl -sf wttr.in/Hildesheim?format=%t`

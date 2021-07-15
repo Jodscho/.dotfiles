@@ -20,10 +20,10 @@ fi
 setxkbmap de &
 picom -f --experimental-backend &
 feh --bg-scale /home/jonathan/.dotfiles/feh/wallpaper.jpg &
-redshift -c ~/redshift &
-sxhkd -c ~/sxhkdrc &
+redshift -c ~/.config/redshift/redshift &
+sxhkd -c ~/.config/sxhkd/sxhkdrc &
 dwmblocks &
 xset s off &
 xset -dpms &
 
-exec ./scripts/startdwm.sh
+exec ./Documents/scripts/startdwm.sh

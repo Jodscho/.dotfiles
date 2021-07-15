@@ -58,7 +58,7 @@ compinit
 alias ls='ls -h --color=auto'
 alias grep='grep --color=auto'
 alias cclip='xclip -selection clipboard'
-alias vim-s='vim -S ~/vim-sessions/"$(ls ~/vim-sessions | dmenu -p 'choose' -i -l 5)" -c "source ~/.vimrc"'
+alias vim-s='vim -S /home/jonathan/.config/vim-sessions/"$(ls /home/jonathan/.config/vim-sessions/ | dmenu -p 'choose' -i -l 5)" -c "source /home/jonathan/.vimrc"'
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'

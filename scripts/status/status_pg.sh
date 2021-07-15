@@ -1,6 +1,6 @@
 #!/bin/bash
 packs=`pacman -Sup | wc -l`
 icon=""
-source /home/jonathan/scripts/colors.sh
+source /home/jonathan/Documents/scripts/colors.sh
 echo -n "$(echo_color $icon $packs)"
 

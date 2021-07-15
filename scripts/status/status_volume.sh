@@ -14,6 +14,6 @@ fi
 # volume level
 volume=`amixer get Master | tail -n 1 | cut -d ' ' -f7 | sed -e 's/^.//' -e 's/.$//'`
 
-source /home/jonathan/scripts/colors.sh
+source /home/jonathan/Documents/scripts/colors.sh
 echo -n "$(echo_color $sink_icon $volume)"
  

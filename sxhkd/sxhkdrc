@@ -8,7 +8,7 @@ super + shift + n
     st -e helper_notes.sh
 
 super + shift + r
-    st -e ranger
+	st -e ranger
 
 super + shift + F5
     adjust_volume.sh 0 && pkill -RTMIN+17 dwmblocks
@@ -20,16 +20,16 @@ super + shift + F7
     audio_switch.sh && pkill -RTMIN+17 dwmblocks
 
 super + shift + F11
-    sudo /home/jonathan/scripts/usb_mount.sh 0 && pkill -RTMIN+18 dwmblocks
+    sudo /home/jonathan/Documents/scripts/usb_mount.sh 0 && pkill -RTMIN+18 dwmblocks
 
 super + shift + F12
-    sudo /home/jonathan/scripts/usb_mount.sh 1 && pkill -RTMIN+18 dwmblocks
+    sudo /home/jonathan/Documents/scripts/usb_mount.sh 1 && pkill -RTMIN+18 dwmblocks
 
 super + shift + o
-    sudo /home/jonathan/scripts/brightness.sh d 50
+    sudo /home/jonathan/Documents/scripts/brightness.sh d 50
 
 super + shift + i
-    sudo /home/jonathan/scripts/brightness.sh i 50
+    sudo /home/jonathan/Documents/scripts/brightness.sh i 50
 
 super + shift + u
     tabbed -c zathura -e
@@ -38,20 +38,16 @@ super + shift + l
     systemctl suspend
 
 super + shift + p
-    /home/jonathan/scripts/bookmark.sh -o
+    /home/jonathan/Documents/scripts/bookmark.sh -o
 
 super + shift + a
-    /home/jonathan/scripts/bookmark.sh -a
-
-ctrl + m
-	st -e launch_cmus.sh
+    /home/jonathan/Documents/scripts/bookmark.sh -a
 
 ctrl + k
 	killall cmus && pkill -RTMIN+20 dwmblocks
 
-ctrl + q
-	/home/jonathan/scripts/find_track.sh
-
 alt + space
-	/home/jonathan/scripts/via
+	/home/jonathan/Documents/scripts/via
 
+ctrl + q
+	xdotool set_desktop 3 

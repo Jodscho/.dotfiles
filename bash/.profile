@@ -2,8 +2,12 @@
 
 [ -f ~/.bashrc ] && source ~/.bashrc
 
-PATH=$PATH":$HOME/scripts"
-PATH=$PATH":$HOME/scripts/status"
+PATH=$PATH":$HOME/Documents/scripts"
+PATH=$PATH":$HOME/Documents/scripts/status"
+
+export EDITOR="vim"
+export TERMINAL="st"
+export BROWSER="firefox"
 
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
