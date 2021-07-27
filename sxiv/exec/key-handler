@@ -10,13 +10,13 @@ do
         "C-c")
                 echo -n "$file" | xclip -selection clipboard ;;
         "C-w")
-				cp "$file" ~/.dotfiles/feh/wallpaper.jpg
-				feh --bg-scale /home/jonathan/.dotfiles/feh/wallpaper.jpg
+				cp "$file" ~/.config/wallpaper/wallpaper.jpg
+				feh --bg-scale /home/jonathan/.config/wallpaper.jpg
 				wal -c
 				wal -i ~/.dotfiles/feh/wallpaper.jpg
-				sudo /home/jonathan/scripts/change_theme.sh
+				sudo /home/jonathan/Documents/scripts/change_theme.sh
 				xdotool key super+shift+q
-				/home/jonathan/scripts/restartdwmblocks.sh
+				/home/jonathan/Documents/scripts/restartdwmblocks.sh
 				notify-send "done setting wallpaper" ;;
         esac
 done

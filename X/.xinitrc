@@ -19,7 +19,7 @@ fi
 
 setxkbmap de &
 picom -f --experimental-backend &
-feh --bg-scale /home/jonathan/.dotfiles/feh/wallpaper.jpg &
+feh --bg-scale /home/jonathan/.config/wallpaper/wallpaper.jpg &
 redshift -c ~/.config/redshift/redshift &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 dwmblocks &
