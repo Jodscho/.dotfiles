@@ -15,7 +15,7 @@ done
 # color variables for scripts
 i=0
 for col in "${colors[@]}"; do
-  sed -i "s/color$i=.*/color$i=\"$col\"/" "$HOME/scripts/colors.sh"
+  sed -i "s/color$i=.*/color$i=\"$col\"/" "$HOME/.dotfiles/scripts/dwmblocks_echo"
   ((i++))
 done
 

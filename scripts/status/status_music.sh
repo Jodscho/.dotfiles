@@ -35,8 +35,8 @@ if [[ $(pgrep cmus) ]]; then
 
 	tmp="${tmp}${tmp2}"
 
-	source /home/jonathan/Documents/scripts/colors.sh
-	echo -n "$(echo_color "$stat" "$tmp")"
+	
+	echo -n "$(dwmblocks_echo "$stat" "$tmp")"
 	#printf "%s" "^c${color14}^"
 	#printf "^c${color4}^%s ^d^%s" "$stat" "$tmp"
 	#printf "%s %s" "$stat" "$tmp"

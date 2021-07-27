@@ -1,7 +1,14 @@
 #!/bin/bash
 
-source /home/jonathan/Documents/scripts/colors.sh
 
-icon=""
-degree=`curl -sf wttr.in/Hildesheim?format=%t`
-echo -n "$(echo_color $icon $degree)"
+
+check_wifi=$(nmcli -t -f STATE general)
+
+if [[ "$check_wifi" == "connected" ]]; then
+	icon=""
+	degree=`curl -sf wttr.in/Hildesheim?format=%t`
+	echo -n "$(dwmblocks_echo $icon $degree)"
+else
+    echo -n ""
+fi
+
