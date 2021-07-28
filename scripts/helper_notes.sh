@@ -1,3 +1,3 @@
 #!/bin/bash
 
-vim ~/Documents/notes/linux-ideas.md -c "norm Go- " -c "startinsert"
+vim ~/.dotfiles/misc/notes/linux-ideas.md -c "norm Go- " -c "startinsert"

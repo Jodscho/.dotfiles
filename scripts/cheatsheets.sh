@@ -1,7 +1,9 @@
 #!/bin/bash
-filename=`ls ~/Documents/cheatsheets/ | sed 's/\.[^.]*$//' | dmenu -i -l 5`
+
+cheatsheets="$HOME/.dotfiles/misc/cheatsheets"
+filename="$(ls $cheatsheets/*.pdf | xargs basename --suffix=.pdf -a | dmenu -i -l 5)"
 
 if [[ -n "$filename" ]]; then
-    zathura "~/Documents/cheatsheets/${filename}.pdf"
+    zathura "$cheatsheets/${filename}.pdf"
 fi
 
