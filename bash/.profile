@@ -1,9 +1,10 @@
 # Runs on login.
 
-[ -f ~/.bashrc ] && source ~/.bashrc
+#[ -f ~/.bashrc ] && source ~/.bashrc
+[ -f ~/.zshrc ] && source ~/.zshrc
 
 PATH=$PATH":$HOME/Documents/scripts"
-PATH=$PATH":$HOME/Documents/scripts/status"
+#PATH=$PATH":$HOME/Documents/scripts/status"
 
 export EDITOR="vim"
 export TERMINAL="st"

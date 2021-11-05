@@ -1,7 +1,7 @@
 autoload -U colors && colors
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-PS1="%B%{$fg[red]%}[%{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
+#PS1="%B%{$fg[red]%}[%{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[red]%}%{$fg[magenta]%}%~%{$fg[red]%}%{$reset_color%} %b "
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -52,7 +52,6 @@ compinit
 #
 #zle -N zle-line-init
 #zle -N zle-keymap-select
-
 
 
 alias ls='ls -h --color=auto'
