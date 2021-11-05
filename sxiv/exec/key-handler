@@ -11,9 +11,9 @@ do
                 echo -n "$file" | xclip -selection clipboard ;;
         "C-w")
 				cp "$file" ~/.config/wallpaper/wallpaper.jpg
-				feh --bg-scale /home/jonathan/.config/wallpaper.jpg
+				feh --bg-scale /home/jonathan/.config/wallpaper/wallpaper.jpg
 				wal -c
-				wal -i ~/.dotfiles/feh/wallpaper.jpg
+				wal -i /home/jonathan/.config/wallpaper/wallpaper.jpg
 				sudo /home/jonathan/Documents/scripts/change_theme.sh
 				xdotool key super+shift+q
 				/home/jonathan/Documents/scripts/restartdwmblocks.sh

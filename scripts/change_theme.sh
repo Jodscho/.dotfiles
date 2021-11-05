@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -x
 
 HOME="/home/jonathan"
 

@@ -1,8 +1,14 @@
 #!/bin/bash
 
+set -x
+
 if [[ -z "$1" ]]; then
     exit 1
 fi
+
+function notify_sudo_send(){
+	sudo -u jonathan DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "$1" -i usb -t 800
+}
 
 # pass 0 to mount
 if [[ "$1" == 0 ]]; then
@@ -17,11 +23,13 @@ if [[ "$1" == 0 ]]; then
         path="/media/${split[4]}"
     fi
 
-    if [[ "${split[2]}" == "ntfs" ]]; then
-        mkdir -p "${path}" && mount "${split[0]}" "${path}" -o umask=000
-    else
-        mkdir -p "${path}" && mount "${split[0]}" "${path}" -o umask=000
-    fi
+    mkdir -p "${path}" && mount "${split[0]}" "${path}" -o umask=000 && notify_sudo_send "mounted"
+
+    #if [[ "${split[2]}" == "ntfs" ]]; then
+    #    mkdir -p "${path}" && mount "${split[0]}" "${path}" -o umask=000
+    #else
+    #    mkdir -p "${path}" && mount "${split[0]}" "${path}" -o umask=000
+    #fi
 
 # pass 1 to un-mount
 elif [[ "$1" == 1 ]]; then
@@ -30,6 +38,6 @@ elif [[ "$1" == 1 ]]; then
         exit 1
     fi
     split=($usbs)
-    umount "${split[0]}" && rmdir /media/"${split[1]}"
+    umount "${split[0]}" && rmdir /media/"${split[1]}" && notify_sudo_send "unmounted"
 fi
 
