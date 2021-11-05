@@ -11,7 +11,7 @@ function! ExecuteProg()
     elseif &filetype == "tex" || &filetype == "plaintex"
         if filereadable("build.sh")
             ":!./build.sh Arbeit 
-            :!./build.sh Arbeit && ./clean.sh 
+            :!./build.sh Arbeit
         else
             :!latexmk -output-directory=out -pdf %
         endif

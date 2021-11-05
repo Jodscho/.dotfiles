@@ -7,7 +7,7 @@ nmap g<C-]> :execute 'tab tag '.expand('<cword>')<CR>
 "set showtabline=2
 
 function! DmenuFuzzy(cmd)
-  let unstriped = system("find . -type f ! -name '*.swp'| dmenu -i -l 10")
+  let unstriped = system("find . -type d \\( -path ./out -o -path ./.git \\) -prune -o \! -name '*.swp' -print | dmenu -i -l 10")
   let fname = substitute(unstriped, '\n$', '', '')
   if empty(fname)
     return

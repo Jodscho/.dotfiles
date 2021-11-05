@@ -7,10 +7,10 @@ function! SaveSession()
     return
   elseif fname == "new-session"
     let session_name = input('enter session-name: ')
-    execute "mksession! ~/vim-sessions/" . session_name
+    execute "mksession! ~/.config/vim-sessions/" . session_name
     execute system("notify-send \"created session: " . session_name . "\"") 
   else
-    execute "mksession! ~/vim-sessions/" . fname
+    execute "mksession! ~/.config/vim-sessions/" . fname
     execute system("notify-send \"overrode session: " . fname . "\"") 
   endif
 endfunction

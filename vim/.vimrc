@@ -6,9 +6,11 @@ set tabstop=4 shiftwidth=4
 syntax on
 colorscheme pablo
 "colorscheme codedark
+"colorscheme monochrome
 
 set visualbell
 set t_vb=
+set hlsearch
 
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
@@ -36,9 +38,12 @@ endfunction
 nmap <silent> cp "_cw<C-R>"<Esc>
 
 " spellcheck style
-" set spell spelllang=en_us
-" hi clear SpellBad
-" hi SpellBad cterm=underline
+set spell spelllang=de
+set spellsuggest=fast
+hi clear SpellBad
+hi SpellBad cterm=underline
+
+set foldmethod=marker
 
 let g:netrw_winsize = 25
 let g:netrw_liststyle = 3

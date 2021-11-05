@@ -26,7 +26,8 @@ while read arg; do
 				$TERMINAL -e cmus &
 			fi
 			sleep 0.1
-			cmus-remote -f "$arg"
+			cmus-remote -C "player-play $arg" &
+			#cmus-remote -f "$arg"
 			#$TERMINAL mpg123 -opulse "$arg" &
 			;;
 		*.od[tsp]|*.doc|*.docx|*.ppt|*.pptx|*.xls|*.xlsx)
@@ -36,6 +37,9 @@ while read arg; do
 			# then try matching by mimetype
 			mimetype=$(file -Lb --mime-type "$arg")
 			case "$mimetype" in
+				application/octet-stream)
+					$TERMINAL -e $EDITOR -S "$arg" -c "source /home/jonathan/.vimrc"
+					;;
 				text/html)
 					$BROWSER "$arg" &
 					;;
