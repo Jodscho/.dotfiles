@@ -1,0 +1,69 @@
+super + shift + {f, t, m, s, g}
+    {firefox, telegram-desktop, thunderbird, flameshot gui, gimp}
+
+super + shift + Return
+	st
+
+super + l
+	systemctl suspend
+
+super + shift + F11
+	sudo /home/jonathan/Documents/scripts/usb_mount.sh 1 
+
+super + shift + F12
+	sudo /home/jonathan/Documents/scripts/usb_mount.sh 0
+
+super + Tab
+	berryc cycle_focus
+
+super + p
+	dmenu_run
+
+super + c
+	berryc window_center
+
+super + shift + h
+	berryc snap_left
+
+super + shift + l
+	berryc snap_right
+
+super + {1-9}
+	berryc switch_workspace {0-9}
+
+super + shift + {1-9}
+	berryc send_to_workspace {0-9}
+
+super + f
+	berryc fullscreen
+
+super + shift + c
+	berryc window_close
+
+super + shift + x
+    power_off.sh
+
+super + shift + r
+	st -e ranger
+
+super + shift + F5
+    adjust_volume.sh 0
+
+super + shift + F6
+    adjust_volume.sh 1
+
+super + shift + F7
+    audio_switch.sh
+
+super + shift + u
+    tabbed -c zathura -e
+
+super + d
+	via
+
+ctrl + q
+	xdotool set_desktop 3 
+
+~button1
+	berryc pointer_focus
+

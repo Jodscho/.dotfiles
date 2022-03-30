@@ -1,0 +1,43 @@
+#!/bin/bash
+
+declare -A hashmap
+
+hashmap["Warcraft"]="/home/jonathan/.wine/drive_c/Program Files (x86)/Warcraft III/Frozen Throne.exe"
+hashmap["Diablo 2"]="/home/jonathan/.wine/drive_c/Program Files (x86)/Diablo II/Diablo II.exe"
+hashmap["Age of Empires"]="/home/jonathan/.wine/drive_c/Program Files (x86)/Microsoft Games/Age of Empires/gamex/Launcher.exe"
+hashmap["Stronghold Crusader"]="/home/jonathan/.wine/drive_c/Program Files (x86)/Firefly Studios/Stronghold Crusader/Stronghold Crusader.exe"
+hashmap["Stronghold"]="/home/jonathan/.wine/drive_c/Program Files (x86)/Firefly Studios/Stronghold/Stronghold.exe"
+hashmap["Heroes 3"]="/home/jonathan/.wine/drive_c/Program Files (x86)/3DO/Heroes3/Heroes3.exe"
+hashmap["Heroes 4"]="/home/jonathan/.wine/drive_c/Program Files (x86)/3DO/Heroes of Might and Magic IV/heroes4g.exe"
+hashmap["Ceasar 3"]="/home/jonathan/.wine/drive_c/SIERRA/Caesar3/c3.exe"
+hashmap["Robin Hood"]="/home/jonathan/.wine/drive_c/Program Files (x86)/Wanadoo Edition/Robin Hood - Die Legende von Sherwood/Robin Hood.exe"
+
+choice=$(printf "%s\n" "${!hashmap[@]}" | dmenu -l 10)
+
+if [[ -n "$choice" ]]; then
+	curr=$(xdotool get_desktop)
+	berryc switch_workspace 9
+	xrandr --output HDMI-1 --mode 1280x720
+	cd "$(dirname "${hashmap["$choice"]}")"
+	wine "${hashmap["$choice"]}" &
+	sleep 1
+	feh --no-fehbg --bg-scale '/home/jonathan/Pictures/blacksquare.png'
+	berryc window_center
+	pid=$(pgrep wineserver)
+	tail --pid=$pid -f /dev/null
+	xrandr --output HDMI-1 --mode 1920x1080
+	berryc switch_workspace "$curr"
+	feh --no-fehbg --bg-scale '/home/jonathan/.config/wallpaper/wallpaper.jpg' 
+fi
+
+
+#
+#game="$(find . -name '*.lnk' | dmenu -l 10 )" 
+#
+#if [[ -n "$game" ]]; then
+#	#xrandr --output HDMI-1 --mode 1280x720
+#	wine "$game"
+#	#xrandr --output HDMI-1 --mode 1920x1080
+#fi
+
+

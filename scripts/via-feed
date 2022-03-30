@@ -6,11 +6,11 @@ if [[ "$1" == "-r" ]] || [[ ! -e "$cache" ]]; then
 	cat "$HOME/.config/via/shortcuts" > "$cache"
 	cat "$HOME/.config/via/websites" >> "$cache"
 	ls -d $HOME/.config/vim-sessions/* >> "$cache"
-	find "/usr/local/src/suckless" "/usr/local/src/sowm" "$HOME/.dotfiles/" \( -name .git -o -name submodules \) -prune -o -print | sort >> "$cache"
+	find "$HOME/.local/src" "/usr/local/src/sowm" "$HOME/.dotfiles/" \( -name .git -o -name submodules \) -prune -o -print | sort >> "$cache"
 	#find "$HOME/Downloads" \( -path "$HOME/Downloads/Telegram\ Desktop/*" \) -prune -o -name ".*" -print | sort >> "$cache"
 	find "$HOME/Documents" \( -path "*/.git/*" \) -prune -o -print | sort >> "$cache"
 	find "$HOME/.dotfiles" \( -path "$HOME/.dotfiles/submodules/*" \) -prune -o -name ".*" -print | sort >> "$cache"
 fi
 
-#wmctrl -xl | sed "s/^[^.]*\.//;s/ \+\S\+ \+/ /;s/^/w /;s/ \+/ /g"
+wmctrl -xl | sed "s/^[^.]*\.//;s/ \+\S\+ \+/ /;s/^/w /;s/ \+/ /g"
 cat "$cache"

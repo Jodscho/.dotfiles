@@ -1,0 +1,7 @@
+via -r
+st htop
+st cmus
+libreoffice --calc
+popin-win.sh
+popout-win.sh
+tabbed -c zathura -e 
