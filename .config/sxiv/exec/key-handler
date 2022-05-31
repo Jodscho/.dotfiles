@@ -9,6 +9,10 @@ do
                 convert -rotate 90 "$file" "$file" ;;
         "C-c")
                 echo -n "$file" | xclip -selection clipboard ;;
+
+		"C-g")
+			    gimp "$file" ;;
+
         "C-w")
 				cp "$file" ~/.config/wallpaper/wallpaper.jpg
 				feh --bg-scale /home/jonathan/.config/wallpaper/wallpaper.jpg

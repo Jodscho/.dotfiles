@@ -5,3 +5,4 @@ libreoffice --calc
 popin-win.sh
 popout-win.sh
 tabbed -c zathura -e 
+anki --no-sandbox

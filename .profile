@@ -6,6 +6,7 @@
 PATH=$PATH":$HOME/Documents/scripts"
 #PATH=$PATH":$HOME/Documents/scripts/status"
 
+#export LD_LIBRARY_PATH=/usr/local/lib 
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"

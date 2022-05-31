@@ -8,6 +8,7 @@ berryc top_gap            0
 berryc edge_gap 15 15 15 15
 berryc inner_focus_color 000000
 berryc decorate_new false
+berryc smart_place "false"
 
 # Set decoration colors
 #berryc focus_color         292D3E

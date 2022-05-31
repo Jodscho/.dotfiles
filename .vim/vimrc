@@ -64,7 +64,13 @@ function LatexMenu()
 :copen 
 endfunction
 
+function ToggleLineNumbers()
+:set relativenumber!
+:set number!
+endfunction
+
 map <silent> <F12> :call LatexMenu()<cr><cr>
+map <silent> <F2> :call ToggleLineNumbers()<cr><cr>
 " close quickfix window when selecting an item
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 

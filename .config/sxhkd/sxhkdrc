@@ -61,6 +61,12 @@ super + shift + u
 super + d
 	via
 
+ctrl + t
+	sttabs.sh
+
+ctrl + o
+	popout-win.sh
+
 ctrl + q
 	xdotool set_desktop 3 
 

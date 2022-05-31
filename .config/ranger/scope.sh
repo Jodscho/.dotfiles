@@ -80,10 +80,16 @@ handle_extension() {
             #  fmt -w "${PV_WIDTH}" && exit 5
             #exiftool "${FILE_PATH}" && exit 5
             #exit 1;;
+		
+		## YT
+		mkv|mp4)
+			#ffmpeg -i "${FILE_PATH}" -map 0:v -map -0:V -c copy "${IMAGE_CACHE_PATH%.*}" && exit 6
+			ranger_thumbnail.sh "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+			exit 1;;
 
         ## BitTorrent
         torrent)
-            transmission-show -- "${FILE_PATH}" && exit 5
+			transmission-show -- "${FILE_PATH}" && exit 5
             exit 1;;
 
         ## OpenDocument
