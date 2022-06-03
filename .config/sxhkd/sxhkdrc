@@ -47,13 +47,13 @@ super + shift + r
 	st -e ranger
 
 super + shift + F5
-    adjust_volume.sh 0
+    audio_control 2 - 5
 
 super + shift + F6
-    adjust_volume.sh 1
+    audio_control 2 + 5
 
 super + shift + F7
-    audio_switch.sh
+    audio_control 1
 
 super + shift + u
     tabbed -c zathura -e

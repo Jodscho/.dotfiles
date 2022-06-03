@@ -1,0 +1,83 @@
+#!/bin/bash
+
+DEFAULT_SPEAKER="alsa_output.usb-Logitech_Logitech_Speaker-00.analog-stereo"
+DEFAULT_HEADPHONES="alsa_output.pci-0000_00_1b.0.analog-stereo"
+DUNST="$XDG_CONFIG_HOME/dunst"
+
+#get_props() {
+#	oldIFS=$IFS
+#	IFS=$'\n'
+#	out=""
+#	reading_index=-1
+#	for line in $(pacmd list-sinks); do
+#		if [[ $line == *index* ]]; then
+#			if [[ reading_index -gt -1 ]]; then
+#				out="${out}\n"
+#			fi
+#			reading_index="${line: -1}"
+#			out="${out}${reading_index}"
+#		fi
+#		if [[ $line == *device.product.name* || 
+#			  $line == *device.icon_name* ]]; then
+#			prop="$(echo $line | cut -d'=' -f2)"
+#			out="${out}\t${prop:2:-1}"
+#		fi
+#	done
+#	IFS=oldIFS
+#	echo "$out"
+#}
+
+choose_sink() {
+	sink=$(pacmd list-sinks | grep 'name: <.*>' | cut -d'<' -f2 | dmenu -l 5)
+	pacmd set-default-sink "${sink::-1}"
+}
+
+switch_sink() {
+	sink=`pacmd list-sinks | grep -A 1 '*' | sed -n 2p | cut -d "<" -f2 | cut -d ">" -f1`
+	icon=""
+	if [[ "$sink" == "$DEFAULT_SPEAKER" ]]; then
+		icon="headphones"
+	    pacmd set-default-sink "$DEFAULT_HEADPHONES"
+	elif [[ "$sink" == "$DEFAULT_HEADPHONES" ]]; then
+		icon="volume"
+	    pacmd set-default-sink "$DEFAULT_SPEAKER"
+	fi
+	cp "$DUNST/icons/$icon.png" "$DUNST/icons/default-vol.png"
+	dunstify "output" \
+			  -i "$icon" \
+			  -r "991048" \
+			  -t 400
+}
+
+adjust_volume() {
+	if [[ "$1" == "+" ]]; then
+		pactl set-sink-volume @DEFAULT_SINK@ +$2%
+	elif [[ "$1" == "-" ]]; then
+		pactl set-sink-volume @DEFAULT_SINK@ -$2%
+	fi
+	sink=$(pactl get-default-sink)
+	volume=$(pactl get-sink-volume "$sink" | grep -o '[0-9]*%' | head -1)
+	dunstify -a "changeVolume"  \
+			 -u low \
+			 -r "991049" \
+			 -h int:value:"$volume" "Volume: $volume" \
+			 -t 800 \
+			 -i default-vol
+}
+
+usage() {
+	echo "usage: $0 [0|1|[2[+|-]x]] "
+	echo "    0: choose audio sink from dmenu"
+	echo "    1: switch between default audio sinks"
+	echo "    2: increase/decrease audio volume by x %"
+	echo "        +: increase volume"
+	echo "        -: decrease volume"
+}
+
+case "$1" in 
+	0) choose_sink ;;
+	1) switch_sink ;;
+	2) adjust_volume $2 $3 ;;
+	*) usage ;;
+esac
+
